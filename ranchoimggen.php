@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              https://github.com/c-exe
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Ranchoimggen
  * @copyright         2020 c-exe
  *
@@ -17,7 +17,7 @@
  * Plugin Name:       Randomly Chosen Image Generator
  * Plugin URI:        https://github.com/c-exe/RanChoImgGen
  * Description:       Randomly picks and shows 3 images from a given gallery.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            C Collingridge
  * Author URI:        https://github.com/c-exe
  * Requires PHP:      7.0
@@ -39,7 +39,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'RANCHOIMGGEN_VERSION', '1.0.0' );
+define( 'RANCHOIMGGEN_VERSION', '1.0.1' );
 
 
 

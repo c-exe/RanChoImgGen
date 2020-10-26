@@ -1,0 +1,1 @@
+# This will include the POT files for the languages

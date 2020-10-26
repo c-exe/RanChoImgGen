@@ -1,0 +1,20 @@
+/**
+  * All of the CSS for your public-facing functionality should be
+  * included in this file.  
+  * Version 1.0.1
+  */
+
+DIV.RanChoImgGenBackground
+{
+  background-color: #FFFFAA;
+  border: 1px solid #000000;
+  text-align: center; 
+  padding: 10px;
+  /*width: 100%;*/
+  margin: 0px;
+}
+
+IMG.RanChoImgGenImage
+{
+  margin: 10px;
+}
