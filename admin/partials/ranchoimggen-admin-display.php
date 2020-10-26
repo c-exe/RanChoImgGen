@@ -6,7 +6,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  *
  * @link       https://github.com/c-exe
- * @since      1.0.0
+ * @since      1.0.1
  *
  * @package    Ranchoimggen
  * @subpackage Ranchoimggen/admin/partials
@@ -48,8 +48,8 @@
         <fieldset>
             <legend class="screen-reader-text"><span><?php _e("Number of Images Shown", $this->plugin_name);?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-numshown">
+                <span><?php esc_attr_e('How many images to show', $this->plugin_name); ?>: </span>
                 <input type="text" id="<?php echo $this->plugin_name; ?>-numshown" name="<?php echo $this->plugin_name; ?>[numshown]" value="<?php echo (isset($numshown) && !empty($numshown)) ? "$numshown" : 3 ; ?>" maxlength="4" />
-                <span><?php esc_attr_e('How many images to show', $this->plugin_name); ?></span>
             </label>
         </fieldset>
 
@@ -57,8 +57,8 @@
         <fieldset>
             <legend class="screen-reader-text"><span><?php _e("List of Images", $this->plugin_name);?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-listimg">
-                <textarea id="<?php echo $this->plugin_name; ?>-listimg" name="<?php echo $this->plugin_name; ?>[listimg]" rows="52" cols="64"><?php echo "$listimg"; ?></textarea>
-                <span><?php esc_attr_e('List of Image URLs', $this->plugin_name); ?></span>
+			    <span><?php esc_attr_e('List of Image URLs', $this->plugin_name); ?>: </span><br />
+                <textarea id="<?php echo $this->plugin_name; ?>-listimg" name="<?php echo $this->plugin_name; ?>[listimg]" rows="20" cols="100"><?php echo "$listimg"; ?></textarea>
             </label>
         </fieldset>
 

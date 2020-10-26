@@ -7,7 +7,7 @@
  * public-facing side of the site and the admin area.
  *
  * @link       https://github.com/c-exe
- * @since      1.0.0
+ * @since      1.0.1
  *
  * @package    Ranchoimggen
  * @subpackage Ranchoimggen/includes
@@ -22,7 +22,7 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      1.0.0
+ * @since      1.0.1
  * @package    Ranchoimggen
  * @subpackage Ranchoimggen/includes
  * @author     C Collingridge <chriscollingridge@oakleaf-enterprise.org>
@@ -64,13 +64,13 @@ class Ranchoimggen {
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since    1.0.1
 	 */
 	public function __construct() {
 		if ( defined( 'RANCHOIMGGEN_VERSION' ) ) {
 			$this->version = RANCHOIMGGEN_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.0.1';
 		}
 		$this->plugin_name = 'ranchoimggen';
 
@@ -91,7 +91,7 @@ class Ranchoimggen {
 	   $numshown = $options['numshown'];
        $listimg = $options['listimg'];
 	   $urls = explode("\n",chop($listimg));
-	   $iwidth = floor(90 / $numshown);
+	   $iwidth = floor(90 / (($numshown < 8) ? $numshown : 7 ));
 	   $numurls = count($urls);
 		$content = "";
 	   if ($numurls >= $numshown)
@@ -101,14 +101,14 @@ class Ranchoimggen {
 		   $numurls = count($urls);
 	       $rnd = floor(mt_rand(0,$numurls-1));
 			 $content .= "$rnd:";
-		   $rurl[$i] = $urls[$rnd];
+		   $rurl[$i] = chop($urls[$rnd]);
 			 $content .= "[";
 			 $k=0;
 			 for ($j=0;$j<$numurls;$j++)
 			 {
 				 if ($j!=$rnd)
 				 {
-				     $content .= "$k=$j(" . $urls[$j] . ");";
+				     $content .= "$k=$j(" . chop($urls[$j]) . ");";
 					 $nurls[$k]=$urls[$j];
 			         $k++;
 				 }
@@ -128,10 +128,10 @@ class Ranchoimggen {
 	     $rurl = $urls;
 		 $numurls = count($urls);
 	   }
-	   $content = "<div style=\"background-color: #FFFFAA; border-color: #000000; text-align: center; \">\n";
+	   $content = "<div class=\"RanChoImgGenBackground\" style=\"background-color: #FFFFAA; border-color: #000000; text-align: center; \">\n";
 	   for ($i = 0; $i<$numurls; $i++)
 	   {
-	     $content .= "<img src=\"" . htmlspecialchars($rurl[$i]) . "\" width=\"$iwidth%\" height=\"auto\" />&nbsp;";
+	     $content .= "<img src=\"" . htmlspecialchars($rurl[$i]) . "\" width=\"$iwidth%\" height=\"auto\" class=\"RanChoImgGenImage\" />&nbsp;";
 	   }
 	   $content .= "\n</div>";
  	   return $content;
